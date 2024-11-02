@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from controller import HomeController
+import mysql.connector
 
 # Initialize Flask app and the HomeController
 app = Flask(__name__)
@@ -30,6 +31,22 @@ def toggle_door():
     """Route to lock/unlock the door."""
     controller.door_lock.toggle()  # Toggle door lock state
     return jsonify({"is_locked": controller.door_lock.is_locked})
+
+@app.route('/logs')
+def view_logs():
+    """Route to view event logs from the database."""
+    db = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="5eDL0@z2tK68",
+        database="iot_home_automation"
+    )
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM EventLogs ORDER BY event_timestamp DESC")
+    logs = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return render_template("logs.html", logs=logs)  # Pass logs to the logs.html template
 
 if __name__ == '__main__':
     app.run(debug=True)
