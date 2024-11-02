@@ -44,23 +44,28 @@
 </head>
 <body>
     <h1>Event Logs</h1>
-    <table>
-        <tr>
-            <th>Log ID</th>
-            <th>Device ID</th>
-            <th>Event Type</th>
-            <th>Event Value</th>
-            <th>Timestamp</th>
-        </tr>
-        {% for log in logs %}
-        <tr>
-            <td>{{ log['log_id'] }}</td>
-            <td>{{ log['device_id'] }}</td>
-            <td>{{ log['event_type'] }}</td>
-            <td>{{ log['event_value'] }}</td>
-            <td>{{ log['event_timestamp'] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+
+    {% if logs %}
+        <table>
+            <tr>
+                <th>Log ID</th>
+                <th>Device ID</th>
+                <th>Event Type</th>
+                <th>Event Value</th>
+                <th>Timestamp</th>
+            </tr>
+            {% for log in logs %}
+            <tr>
+                <td>{{ log['log_id'] }}</td>
+                <td>{{ log['device_id'] }}</td>
+                <td>{{ log['event_type'] }}</td>
+                <td>{{ log['event_value'] }}</td>
+                <td>{{ log['event_timestamp'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p style="text-align: center; color: #777;">No event logs to display.</p>
+    {% endif %}
 </body>
 </html>
