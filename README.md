@@ -37,6 +37,7 @@ IoT_Home_Automation/
 │   └── style.css       # Custom styling for the dashboard
 ├── venv/               # Virtual environment (not tracked in Git)
 └── requirements.txt    # List of dependencies for the project
+```
 
 ## 🖥️ Usage
 
