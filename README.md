@@ -115,6 +115,8 @@ A 🌐 Flask-based IoT home automation dashboard that allows users to control an
    )
    ```
 
+---
+
 ## 📁 Project Structure
 
 The project is organized as follows:
