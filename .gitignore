@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# VS Code settings
+.vscode/
+
+# Environment variables file (if used for sensitive data)
+.env
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Reports or dependency check reports (if applicable)
+reports/
